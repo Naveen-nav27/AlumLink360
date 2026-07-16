@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Administration Dashboard | AlumLink 360</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;850&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="icon" type="image/png" href="422.png">
+</head>
+
+<body>
+    <!-- Ambient Professional Background -->
+    <div class="ambient-glow">
+        <div class="dot-grid"></div>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="dashboard-portal">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <a href="index.html" class="dashboard-logo"><img src="422.png" alt="Logo" class="logo-icon">Alum<span>Link</span> 360</a>
+            
+            <div style="text-align: center; display: flex; flex-direction: column;">
+                <h4 style="margin: 0; font-weight: 850; font-size: 0.95rem; color: var(--text-heading);" id="dashboardCollegeName">College Name</h4>
+                <span style="font-size: 0.725rem; font-weight: 600; color: var(--text-light);" id="dashboardCollegeCode">ksrct</span>
+            </div>
+
+            <div class="dashboard-user-info">
+                <div class="dashboard-user-meta" style="text-align: right; margin-right: 0.5rem;">
+                    <h5 id="dashboardUserName">Administrator</h5>
+                    <span>Portal Administrator</span>
+                </div>
+                <button class="btn btn-outline-light" id="logoutBtn" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; font-weight: 700;">Sign Out</button>
+            </div>
+        </header>
+
+        <!-- Dashboard Body Container -->
+        <div class="dashboard-body">
+            <!-- Admin Stat Metrics -->
+            <div class="admin-stats-grid">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <div class="admin-stat-details">
+                        <h4 id="adminStatStudents">0</h4>
+                        <p>Registered Students</p>
+                    </div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon accent">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div class="admin-stat-details">
+                        <h4 id="adminStatAlumni">0</h4>
+                        <p>Alumni Profiles</p>
+                    </div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon pink">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <div class="admin-stat-details">
+                        <h4 id="adminStatOpps">0</h4>
+                        <p>Campus Opportunities</p>
+                    </div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon yellow">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div class="admin-stat-details">
+                        <h4 id="adminStatApplications">0</h4>
+                        <p>Student Applications</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Tab Switchers -->
+            <div class="dash-tabs">
+                <button id="adminTabBtnStudents" class="dash-tab-btn active">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    Manage Students
+                </button>
+                <button id="adminTabBtnAlumni" class="dash-tab-btn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    Manage Alumni
+                </button>
+                <button id="adminTabBtnOpps" class="dash-tab-btn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Manage Opportunities
+                </button>
+                <button id="adminTabBtnApps" class="dash-tab-btn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    Student Applications
+                </button>
+                <button id="adminTabBtnSettings" class="dash-tab-btn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Portal Settings
+                </button>
+            </div>
+
+            <!-- Students Tab Content -->
+            <section id="adminStudentsTableContainer" class="admin-table-container">
+                <div class="admin-table-header">
+                    <div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; text-align: left;">Student Database</h3>
+                        <p style="font-size: 0.78rem; color: var(--text-light); margin: 0.15rem 0 0; text-align: left;">Filter by batch, then department</p>
+                    </div>
+                    <button id="adminAddStudentBtn" class="btn btn-primary" style="padding: 0.45rem 1.25rem; font-size: 0.8rem; font-weight: 700; border-radius: 6px;">+ Add Student</button>
+                </div>
+                <!-- Cascade Filter Bar -->
+                <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; padding: 1rem 1.5rem; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem; text-align: left;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em;">Batch</label>
+                        <select id="adminStuBatchFilter" class="form-control" style="padding: 0.35rem 0.7rem; font-size: 0.82rem; min-width: 140px; font-weight: 600;">
+                            <option value="all">All Batches</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem; text-align: left;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em;">Department</label>
+                        <select id="adminStuDeptFilter" class="form-control" style="padding: 0.35rem 0.7rem; font-size: 0.82rem; min-width: 160px; font-weight: 600;">
+                            <option value="all">All Departments</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1; min-width: 160px; text-align: left;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em;">Search</label>
+                        <input type="text" id="adminStudentSearch" class="form-control" placeholder="Name, Roll No or Email..." style="padding: 0.35rem 0.8rem; font-size: 0.82rem;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: transparent;">x</label>
+                        <button id="adminStuResetFilter" class="btn btn-outline-primary" style="padding: 0.35rem 0.9rem; font-size: 0.8rem; font-weight: 700;">Reset</button>
+                    </div>
+                </div>
+                <!-- Batch Stats Banner -->
+                <div id="adminStuBatchStats" class="batch-stats-banner" style="display: none; padding: 0.75rem 1.5rem; background: var(--color-primary-light); color: var(--color-primary); font-weight: 700; font-size: 0.85rem; border-bottom: 1px solid var(--border-color); text-align: left;"></div>
+                <!-- Cards Grid -->
+                <div id="adminStudentsCardGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; padding: 1.5rem;">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Alumni Tab Content -->
+            <section id="adminAlumniTableContainer" class="admin-table-container" style="display: none;">
+                <div class="admin-table-header">
+                    <div>
+                        <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; text-align: left;">Alumni Database</h3>
+                        <p style="font-size: 0.78rem; color: var(--text-light); margin: 0.15rem 0 0; text-align: left;">Filter by batch, then department</p>
+                    </div>
+                    <button id="adminAddAlumniBtn" class="btn btn-primary" style="padding: 0.45rem 1.25rem; font-size: 0.8rem; font-weight: 700; border-radius: 6px;">+ Add Alumnus</button>
+                </div>
+                <!-- Cascade Filter Bar -->
+                <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; padding: 1rem 1.5rem; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem; text-align: left;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em;">Batch</label>
+                        <select id="adminAluBatchFilter" class="form-control" style="padding: 0.35rem 0.7rem; font-size: 0.82rem; min-width: 140px; font-weight: 600;">
+                            <option value="all">All Batches</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem; text-align: left;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em;">Department</label>
+                        <select id="adminAluDeptFilter" class="form-control" style="padding: 0.35rem 0.7rem; font-size: 0.82rem; min-width: 160px; font-weight: 600;">
+                            <option value="all">All Departments</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1; min-width: 160px; text-align: left;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em;">Search</label>
+                        <input type="text" id="adminAlumniSearch" class="form-control" placeholder="Name, ID or Department..." style="padding: 0.35rem 0.8rem; font-size: 0.82rem;">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <label style="font-size: 0.72rem; font-weight: 700; color: transparent;">x</label>
+                        <button id="adminAluResetFilter" class="btn btn-outline-primary" style="padding: 0.35rem 0.9rem; font-size: 0.8rem; font-weight: 700;">Reset</button>
+                    </div>
+                </div>
+                <!-- Batch Stats Banner -->
+                <div id="adminAluBatchStats" class="batch-stats-banner" style="display: none; padding: 0.75rem 1.5rem; background: var(--color-primary-light); color: var(--color-primary); font-weight: 700; font-size: 0.85rem; border-bottom: 1px solid var(--border-color); text-align: left;"></div>
+                <!-- Cards Grid -->
+                <div id="adminAlumniCardGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; padding: 1.5rem;">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Opportunities Tab Content -->
+            <section id="adminOppsTableContainer" class="admin-table-container" style="display: none;">
+                <div class="admin-table-header">
+                    <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; text-align: left;">Campus Opportunities Database</h3>
+                    <div style="display: flex; gap: 0.75rem; align-items: center;">
+                        <input type="text" id="adminOppSearch" class="form-control admin-table-search" placeholder="Search opportunities..." style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+                        <button id="adminAddOppBtn" class="btn btn-primary" style="padding: 0.45rem 1.25rem; font-size: 0.8rem; font-weight: 700; border-radius: 6px;">+ Add Opportunity</button>
+                    </div>
+                </div>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Type</th>
+                                <th>Title</th>
+                                <th>Host</th>
+                                <th>Location</th>
+                                <th>Deadline/Date</th>
+                                <th>Posted By</th>
+                                <th width="120px">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminOppsTableBody">
+                            <!-- Loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Applications Tab Content -->
+            <section id="adminAppsTableContainer" class="admin-table-container" style="display: none;">
+                <div class="admin-table-header">
+                    <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; text-align: left;">Student Portal Applications</h3>
+                    <input type="text" id="adminAppSearch" class="form-control admin-table-search" placeholder="Search applications..." style="padding: 0.4rem 0.8rem; font-size: 0.8rem; max-width: 250px;">
+                </div>
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>App ID</th>
+                                <th>Opportunity</th>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>CGPA</th>
+                                <th>Resume</th>
+                                <th>Cover Notes</th>
+                                <th>Applied On</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminAppsTableBody">
+                            <!-- Loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Settings Tab Content -->
+            <section id="adminSettingsContainer" class="admin-table-container" style="display: none; padding: 2.5rem; background-color: #ffffff;">
+                <div style="text-align: left; max-width: 600px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 850; margin-bottom: 0.5rem; color: var(--text-heading);">Portal Customization</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 2rem;">Configure settings, welcome messages, and themes for this college portal.</p>
+                    
+                    <form id="adminPortalSettingsForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="settingsMinCgpa" style="font-weight: 700; font-size: 0.85rem; color: var(--text-heading);">Minimum CGPA threshold for Internship applications</label>
+                            <input type="number" id="settingsMinCgpa" class="form-control" placeholder="e.g. 7.5" step="0.01" min="0" max="10" required style="padding: 0.65rem 1rem;">
+                        </div>
+                        <div class="form-group">
+                            <label for="settingsWelcomeMsg" style="font-weight: 700; font-size: 0.85rem; color: var(--text-heading);">Portal Login Subtitle Welcome Message</label>
+                            <input type="text" id="settingsWelcomeMsg" class="form-control" placeholder="e.g. Secure Academic Gateway Authentication" required style="padding: 0.65rem 1rem;">
+                        </div>
+                        <div class="form-group">
+                            <label for="settingsThemeColor" style="font-weight: 700; font-size: 0.85rem; color: var(--text-heading);">Accent Brand Theme Color</label>
+                            <select id="settingsThemeColor" class="form-control" style="padding: 0.65rem 1rem; font-weight: 600;">
+                                <option value="blue">Classic Business (Blue)</option>
+                                <option value="teal">Healthcare & Engineering (Teal)</option>
+                                <option value="purple">Premium Innovation (Purple)</option>
+                                <option value="pink">Creative Vibrant (Pink)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="align-self: flex-start; margin-top: 0.5rem; padding: 0.65rem 2rem; font-size: 0.85rem;">Save Portal Configuration</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- ================= MODALS & OVERLAYS ================= -->
+
+    <!-- Admin CRUD Student Modal overlay -->
+    <div class="admin-modal-overlay" id="adminStudentModal">
+        <div class="admin-modal">
+            <div class="drawer-header">
+                <div class="drawer-header-title">
+                    <h3 id="adminStudentModalTitle">Add New Student</h3>
+                    <p>Enter profile credentials and metrics</p>
+                </div>
+                <button class="btn-close" id="closeAdminStudentModalBtn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="drawer-body">
+                <form id="adminStudentForm" style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+                    <input type="hidden" id="editStudentIdx">
+                    <div class="form-group">
+                        <label for="formStudentId">Roll No / Registration ID</label>
+                        <input type="text" id="formStudentId" class="form-control" placeholder="e.g. STU101" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentName">Full Name</label>
+                        <input type="text" id="formStudentName" class="form-control" placeholder="e.g. Rachel Green" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentDept">Department</label>
+                        <select id="formStudentDept" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="VLSI">VLSI</option>
+                            <option value="MCT">MCT</option>
+                            <option value="Food Tech">Food Tech</option>
+                            <option value="Textile">Textile</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentEmail">Email Address</label>
+                        <input type="email" id="formStudentEmail" class="form-control" placeholder="rachel@domain.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentCgpa">CGPA</label>
+                        <input type="number" id="formStudentCgpa" class="form-control" placeholder="e.g. 9.1" step="0.01" min="0" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentResume">Resume Link</label>
+                        <input type="text" id="formStudentResume" class="form-control" placeholder="e.g. drive.google.com/resume" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentImage">Profile Image URL</label>
+                        <input type="text" id="formStudentImage" class="form-control" placeholder="e.g. https://images.unsplash.com/... (optional)">
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentPass">Password</label>
+                        <input type="password" id="formStudentPass" class="form-control" placeholder="password123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentGradYear">Graduation Year</label>
+                        <select id="formStudentGradYear" class="form-control" required>
+                            <option value="" disabled selected>Select Graduation Year</option>
+                            <option value="2020">2020 (Batch 2016–2020)</option>
+                            <option value="2021">2021 (Batch 2017–2021)</option>
+                            <option value="2022">2022 (Batch 2018–2022)</option>
+                            <option value="2023">2023 (Batch 2019–2023)</option>
+                            <option value="2024">2024 (Batch 2020–2024)</option>
+                            <option value="2025">2025 (Batch 2021–2025)</option>
+                            <option value="2026">2026 (Batch 2022–2026)</option>
+                            <option value="2027">2027 (Batch 2023–2027)</option>
+                            <option value="2028">2028 (Batch 2024–2028)</option>
+                            <option value="2029">2029 (Batch 2025–2029)</option>
+                            <option value="2030">2030 (Batch 2026–2030)</option>
+                        </select>
+                        <small style="color: var(--text-light); font-size: 0.75rem; margin-top: 0.2rem; display: block;">Students are auto-promoted to alumni after this year.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="formStudentStatus">Verification Status</label>
+                        <select id="formStudentStatus" class="form-control" required>
+                            <option value="approved">Approved / Active</option>
+                            <option value="pending">Pending Admin Review</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="drawer-footer">
+                <button type="submit" form="adminStudentForm" class="btn btn-primary btn-full" id="adminStudentSubmitBtn">Save Student</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin CRUD Alumni Modal overlay -->
+    <div class="admin-modal-overlay" id="adminAlumniModal">
+        <div class="admin-modal">
+            <div class="drawer-header">
+                <div class="drawer-header-title">
+                    <h3 id="adminAlumniModalTitle">Add New Alumnus</h3>
+                    <p>Create database record for alumnus</p>
+                </div>
+                <button class="btn-close" id="closeAdminAlumniModalBtn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="drawer-body">
+                <form id="adminAlumniForm" style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+                    <input type="hidden" id="editAlumniIdx">
+                    <div class="form-group">
+                        <label for="formAlumniId">Alumni ID / Membership ID</label>
+                        <input type="text" id="formAlumniId" class="form-control" placeholder="e.g. ALU101" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniName">Full Name</label>
+                        <input type="text" id="formAlumniName" class="form-control" placeholder="e.g. Ross Geller" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniDept">Department</label>
+                        <select id="formAlumniDept" class="form-control" required>
+                            <option value="" disabled selected>Select Department</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="VLSI">VLSI</option>
+                            <option value="MCT">MCT</option>
+                            <option value="Food Tech">Food Tech</option>
+                            <option value="Textile">Textile</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniYear">Passed Out Year</label>
+                        <select id="formAlumniYear" class="form-control" required>
+                            <option value="" disabled selected>Select Passed Out Year</option>
+                            <option value="2020">2020 (Batch 2016–2020)</option>
+                            <option value="2021">2021 (Batch 2017–2021)</option>
+                            <option value="2022">2022 (Batch 2018–2022)</option>
+                            <option value="2023">2023 (Batch 2019–2023)</option>
+                            <option value="2024">2024 (Batch 2020–2024)</option>
+                            <option value="2025">2025 (Batch 2021–2025)</option>
+                            <option value="2026">2026 (Batch 2022–2026)</option>
+                            <option value="2027">2027 (Batch 2023–2027)</option>
+                            <option value="2028">2028 (Batch 2024–2028)</option>
+                            <option value="2029">2029 (Batch 2025–2029)</option>
+                            <option value="2030">2030 (Batch 2026–2030)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniEmail">Email Address</label>
+                        <input type="email" id="formAlumniEmail" class="form-control" placeholder="ross@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniLinkedin">LinkedIn Profile URL</label>
+                        <input type="text" id="formAlumniLinkedin" class="form-control" placeholder="linkedin.com/in/ross" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniImage">Profile Image URL</label>
+                        <input type="text" id="formAlumniImage" class="form-control" placeholder="https://images.unsplash.com/... (optional)">
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniPass">Password</label>
+                        <input type="password" id="formAlumniPass" class="form-control" placeholder="password123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formAlumniStatus">Verification Status</label>
+                        <select id="formAlumniStatus" class="form-control" required>
+                            <option value="approved">Approved / Active</option>
+                            <option value="pending">Pending Admin Review</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="drawer-footer">
+                <button type="submit" form="adminAlumniForm" class="btn btn-primary btn-full" id="adminAlumniSubmitBtn">Save Alumnus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin CRUD Opportunity Modal overlay -->
+    <div class="admin-modal-overlay" id="adminOppModal">
+        <div class="admin-modal">
+            <div class="drawer-header">
+                <div class="drawer-header-title">
+                    <h3 id="adminOppModalTitle">Add New Opportunity</h3>
+                    <p>Create database record for opening</p>
+                </div>
+                <button class="btn-close" id="closeAdminOppModalBtn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="drawer-body">
+                <form id="adminOppForm" style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+                    <input type="hidden" id="editOppIdx">
+                    <div class="form-group">
+                        <label for="formOppTitle">Opportunity Title</label>
+                        <input type="text" id="formOppTitle" class="form-control" placeholder="e.g. Full-Stack Developer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formOppType">Type</label>
+                        <select id="formOppType" class="form-control" required>
+                            <option value="internship">Internship</option>
+                            <option value="hackathon">Hackathon</option>
+                            <option value="workshop">Workshop</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formOppHost">Host / Company</label>
+                        <input type="text" id="formOppHost" class="form-control" placeholder="e.g. TechCorp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formOppLocation">Location</label>
+                        <input type="text" id="formOppLocation" class="form-control" placeholder="e.g. Remote" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formOppDeadline">Deadline / Date</label>
+                        <input type="text" id="formOppDeadline" class="form-control" placeholder="e.g. July 20, 2026" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formOppTags">Skill Tags (Comma separated)</label>
+                        <input type="text" id="formOppTags" class="form-control" placeholder="e.g. React, AWS" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formOppDesc">Description</label>
+                        <textarea id="formOppDesc" class="form-control" rows="3" style="resize: none;" placeholder="Description..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="flex-direction: row; align-items: center; gap: 0.5rem; margin-top: 0.25rem;">
+                        <input type="checkbox" id="formOppIsPublic" style="width: auto; cursor: pointer;">
+                        <label for="formOppIsPublic" style="font-weight: 550; font-size: 0.85rem; color: var(--text-main); cursor: pointer;">Share globally with all partner colleges</label>
+                    </div>
+                </form>
+            </div>
+            <div class="drawer-footer">
+                <button type="submit" form="adminOppForm" class="btn btn-primary btn-full" id="adminOppSubmitBtn">Save Opportunity</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="database.js"></script>
+    <script src="api.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

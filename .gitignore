@@ -1,0 +1,5 @@
+alumini-connect/target/
+alumini-connect/.mvn/
+*.class
+*.jar
+*.war

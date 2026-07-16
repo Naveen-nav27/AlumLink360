@@ -1,0 +1,442 @@
+/* 
+   AlumLink 360 - Professional Light Theme & SaaS Aesthetic
+   Enterprise-grade typography, clean shadows, slate backgrounds, and vibrant accents.
+*/
+
+:root {
+    /* Color Palette */
+    --bg-main: #f8fafc; /* Slate 50 */
+    --bg-secondary: #f1f5f9; /* Slate 100 */
+    --bg-card: #ffffff;
+    
+    /* Brand Accents */
+    --color-primary: #3b82f6; /* Blue 500 */
+    --color-primary-dark: #1d4ed8; /* Blue 700 */
+    --color-primary-light: #eff6ff; /* Blue 50 */
+    
+    --color-accent: #0f766e; /* Teal 700 */
+    --color-accent-light: #f0fdfa; /* Teal 50 */
+    
+    /* Accent Categories (Soft Rich Tones for Light Theme) */
+    --color-cyan: #0284c7; /* Sky 600 */
+    --color-cyan-light: #f0f9ff;
+    --color-pink: #db2777; /* Pink 600 */
+    --color-pink-light: #fdf2f8;
+    --color-yellow: #b45309; /* Amber 700 */
+    --color-yellow-light: #fef3c7;
+    --color-purple: #7c3aed; /* Violet 600 */
+    --color-purple-light: #f5f3ff;
+    
+    /* Typography Colors */
+    --text-heading: #0f172a; /* Slate 900 */
+    --text-main: #334155; /* Slate 700 */
+    --text-light: #64748b; /* Slate 500 */
+    --text-white: #ffffff;
+    
+    /* Borders */
+    --border-color: #e2e8f0; /* Slate 200 */
+    --border-hover: #cbd5e1; /* Slate 300 */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.06);
+    --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+    --shadow-premium: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+    
+    /* Fonts */
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    
+    /* Animation Transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-sans); background-color: var(--bg-main);
+    color: var(--text-main); line-height: 1.6;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+/* --- Multi-Color Utilities --- */
+.color-cyan { color: var(--color-cyan) !important; }
+.color-pink { color: var(--color-pink) !important; }
+.color-yellow { color: var(--color-yellow) !important; }
+.color-purple { color: var(--color-purple) !important; }
+
+/* Custom Badge Colors for Light Theme */
+.badge-cyan { background-color: var(--color-cyan-light); color: var(--color-cyan); }
+.badge-pink { background-color: var(--color-pink-light); color: var(--color-pink); }
+.badge-yellow { background-color: var(--color-yellow-light); color: var(--color-yellow); }
+.badge-purple { background-color: var(--color-purple-light); color: var(--color-purple); }
+
+.border-cyan { border-bottom: 3px solid var(--color-cyan) !important; }
+.border-pink { border-bottom: 3px solid var(--color-pink) !important; }
+.border-yellow { border-bottom: 3px solid var(--color-yellow) !important; }
+.border-purple { border-bottom: 3px solid var(--color-purple) !important; }
+
+.border-hover-cyan:hover { border-color: var(--color-cyan) !important; box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.15) !important; }
+.border-hover-pink:hover { border-color: var(--color-pink) !important; box-shadow: 0 10px 30px -10px rgba(219, 39, 119, 0.15) !important; }
+.border-hover-yellow:hover { border-color: var(--color-yellow) !important; box-shadow: 0 10px 30px -10px rgba(180, 83, 9, 0.15) !important; }
+.border-hover-purple:hover { border-color: var(--color-purple) !important; box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.15) !important; }
+
+.text-gradient {
+    background: linear-gradient(to right, var(--color-primary), var(--color-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- Ambient Light Background --- */
+.ambient-glow {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1; overflow: hidden; background-color: var(--bg-main);
+}
+.dot-grid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    opacity: 0.8;
+}
+.glow-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(140px); opacity: 0.08;
+    animation: drift 25s infinite alternate ease-in-out;
+}
+.orb-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--color-primary); }
+.orb-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: var(--color-cyan); animation-delay: -5s; }
+.orb-3 { top: 30%; left: 40%; width: 40vw; height: 40vw; background: var(--color-purple); animation-delay: -10s; }
+.orb-4 { bottom: 10%; left: 10%; width: 45vw; height: 45vw; background: var(--color-pink); animation-delay: -15s; }
+
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(5%, 8%) scale(1.05); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+}
+
+/* --- Layout --- */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+h1, h2, h3, h4, h5 { color: var(--text-heading); font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.02em; }
+.section-heading { font-size: 2.5rem; margin-bottom: 0.75rem; color: var(--text-heading); line-height: 1.2; }
+.section-subtext { font-size: 1.125rem; color: var(--text-light); margin-bottom: 3rem; }
+
+/* --- Custom UI Containers --- */
+.glass-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color); border-radius: 16px; 
+    box-shadow: var(--shadow-sm); transition: var(--transition);
+}
+.glass-panel:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.8rem 2rem; font-family: var(--font-sans); font-weight: 600; font-size: 0.95rem;
+    text-decoration: none; border-radius: 8px;
+    cursor: pointer; transition: var(--transition); border: none;
+    gap: 0.5rem;
+}
+.btn-primary {
+    background: var(--color-primary); color: #ffffff;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+}
+.btn-primary:hover {
+    background: var(--color-primary-dark); transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+}
+.btn-outline-light {
+    background-color: transparent; color: var(--text-heading); border: 1px solid var(--border-color);
+}
+.btn-outline-light:hover { 
+    background-color: var(--bg-secondary); 
+    border-color: var(--border-hover); 
+}
+.btn-outline-primary {
+    background-color: transparent; color: var(--color-primary); border: 1px solid var(--color-primary);
+}
+.btn-outline-primary:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+}
+.btn-text-light { background-color: transparent; color: var(--text-main); padding: 0.8rem 1rem; font-weight: 500; }
+.btn-text-light:hover { color: var(--color-primary); }
+.btn-full { width: 100%; border-radius: 8px; }
+
+/* --- Centered Modal UI --- */
+.drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+.drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.portal-drawer {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    max-height: 90vh;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+    z-index: 1001;
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.drawer-overlay.open .portal-drawer {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.drawer-header {
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.drawer-header-title {
+    display: flex;
+    flex-direction: column;
+}
+.drawer-header-title h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-heading);
+}
+.drawer-header-title p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+.btn-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+}
+.btn-close:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-heading);
+}
+
+.drawer-body {
+    padding: 2rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* College Branding Panel in Drawer */
+.drawer-college-branding {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.drawer-college-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+}
+.drawer-college-logo img {
+    max-width: 100%; max-height: 100%; object-fit: contain;
+}
+.drawer-college-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    line-height: 1.3;
+}
+
+/* Role Selector inside drawer */
+.role-tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 0.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 0.25rem;
+}
+.role-tab-btn {
+    border: none;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+    color: var(--text-light);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.role-tab-btn.active {
+    background-color: #ffffff;
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Forms layout */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1.25rem;
+}
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-heading);
+}
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: var(--transition);
+}
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.drawer-footer {
+    padding: 1.75rem 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Success Overlay in Drawer */
+.portal-success-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #ffffff;
+    z-index: 1005;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.portal-success-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.success-checkmark {
+    width: 64px; height: 64px; border-radius: 50%;
+    background-color: var(--color-accent-light);
+    color: var(--color-accent);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Logo Brand Styles */
+.brand-logo, .dashboard-logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+}
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* --- Global Mobile Responsive --- */
+@media (max-width: 480px) {
+    /* Drawer becomes bottom sheet on very small screens */
+    .drawer-overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+    .portal-drawer {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        max-height: 92vh;
+        transform: translateY(100%);
+    }
+    .drawer-overlay.open .portal-drawer {
+        transform: translateY(0);
+    }
+    
+    /* Prevent horizontal overflow globally */
+    .container {
+        padding: 0 4%;
+    }
+
+    /* Touch-friendly buttons */
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Role tabs wrap on mobile */
+    .role-tabs {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0 3%;
+    }
+    .btn {
+        padding: 0.7rem 1.25rem;
+        font-size: 0.85rem;
+    }
+}
+
